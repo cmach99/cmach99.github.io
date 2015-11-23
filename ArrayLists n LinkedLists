@@ -1,0 +1,84 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+
+public class App {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> aList = new ArrayList<Integer>();
+		
+		/*
+         * ArrayLists manage arrays internally.
+         * [0][1][2][3][4][5] ....
+         */
+		
+		aList.add(10);
+		aList.add(100);
+		aList.add(1000);
+		aList.add(10000);
+
+		
+		// Getting 2nd elements in the ArrayList
+		System.out.println(aList.get(1));
+		// Determining the size of the Array
+		System.out.println(aList.size());
+		
+		// Iteration of the arrayList
+		for(Integer x: aList){
+			System.out.print(x + " ");
+			
+		} System.out.println();
+		
+		// Iteration number 2
+		
+		for (int i=0; i<aList.size(); i++){
+			System.out.print(aList + " ");
+		}
+		System.out.println();
+		
+		System.out.println("////********************************************/////");
+		
+		 List<Integer> linkedList = new LinkedList<Integer>();
+		 
+		 /*
+	         * LinkedLists consists of elements where each element
+	         * has a reference to the previous and next element
+	         * [0]->[1]->[2] .... doubly you can add elements forwards and backwards
+	         *    <-   <-
+	         */
+		 
+		 
+         
+	        doTimings("ArrayList", aList);
+	        doTimings("LinkedList" , linkedList);
+	    }
+	     
+	    private static void doTimings(String type, List<Integer> list) {
+	         
+	        for(int i=0; i<1E5; i++) {
+	            list.add(i);
+	        }
+	         
+	        long start = System.currentTimeMillis();
+	         
+	        /*
+	        // Add items at end of list singly => Arraylists
+	        for(int i=0; i<1E5; i++) {
+	            list.add(i);
+	        }
+	        */
+	         
+	        // Add items elsewhere in list
+	        for(int i=0; i<1E5; i++) {
+	            list.add(0, i);
+	        }
+	         
+	        long end = System.currentTimeMillis();
+	         
+	        System.out.println("Time taken: " + (end - start) + " ms for " + type);
+	    }
+	     
+	 
+	 
+	}
