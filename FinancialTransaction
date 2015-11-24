@@ -1,0 +1,31 @@
+function User(){
+
+    this.nameAcc = '';
+    this.balance = 10000;
+    this.financialTransaction = function(targetAccount){
+    targetAccount.balance +=100;
+    console.log(this.nameAcc + ' gained interest from '+  targetAccount.nameAcc);
+
+    }
+}
+
+//create an empty object
+var Obj1 = new User();
+var Obj2 = new User();
+
+Obj1.nameAcc = 'Craig Machingura';
+Obj2.nameAcc = 'Chaka Mach';
+
+Obj1.financialTransaction(Obj2);
+console.log('Chaka Mach has a new balance of £' + Obj2.balance);
+
+// prototype adding a withdrawing functionality to User!
+
+User.prototype.withdrawal =  function(targetAccount){
+targetAccount.balance -=275;
+console.log(this.nameAcc + ' made a deposit to '+  targetAccount.nameAcc);
+}
+
+Obj2.withdrawal(Obj1);
+console.log('Craig Machingura has a new balance of £' + Obj1.balance);
+
