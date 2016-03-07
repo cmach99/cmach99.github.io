@@ -1,0 +1,66 @@
+<!--Copyright code belonging to Cmach Designs code -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="1">
+<title>JavaScript Concepts Projects</title>
+
+<script type="text/javascript">
+
+function myProject(){
+
+	var left_position =25, top_position =25;
+
+	var height=500, width=500;
+
+	var colour_list = ["green", "blue", "red", "green", "purple", "orange", "black"];
+
+
+// find the body element and set attributes
+	var theBody = document.getElementById("theBody");
+
+
+
+//create a while loop that will generate a new div element
+
+while(width>50){
+ // new container div
+ 
+  	var this_div = document.createElement("div");
+ 	
+ 	var colorGen = Math.floor(Math.random()*7);
+
+ 	this_div.style.top = top_position + "px";
+ 	this_div.style.left = left_position + "px";
+ 	this_div.style.width = width + "px";
+ 	this_div.style.height = height + "px";
+ 	this_div.style.backgroundColor = colour_list[colorGen];
+ 	theBody.appendChild(this_div);
+
+ 	// increments
+
+ 	left_position +=10;
+ 	top_position +=10;
+
+ 	//decrements
+
+ 	height-=20;
+ 	width-=20;
+	
+	}
+}
+
+</script>
+
+<style>
+  
+   div{position: absolute}
+
+</style>
+
+</head>
+<body id="theBody" onload="myProject()">
+
+</body>
+</html>
